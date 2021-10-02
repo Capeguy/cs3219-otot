@@ -11,12 +11,21 @@
 
 ## Instructions on how to run the Docker container
 Build & Run Container
-
-    docker-compose up
         
-or 
-        
-    docker build . -t task_a:latest
-    docker run task_a:latest
+    docker build . -t capeguy/task_a:latest
 
-Navigate to http://localhost on a Web Browser
+![Running of Docker Build](a1.1.png)
+
+    docker push capeguy/task_a:latest 
+
+![Running of Docker Push](a1.2.png)
+
+    docker run -p "8001:80" capeguy/task_a:latest
+
+![Running of Docker Run](a1.3.png)
+    
+Replace `capeguy` with your own Dockerhub Username
+
+Navigate to http://localhost:8001 on a Web Browser
+
+![Opening in Web Browser](a1.4.png)

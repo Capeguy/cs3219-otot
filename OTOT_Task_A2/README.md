@@ -12,14 +12,24 @@
 ## Kubectl Commands
 ### Deploy Image
 
-    docker-compose up
+    kubectl apply -f nginx-deployment.yml
     
+![Create Deployment](a2.1.png)
+
 ### Configure Service
 
-    docker-compose up
+    kubectl apply -f nginx-service.yml
+    
+![Create Service](a2.2.png)
     
 ### Access Deployed Image Through Service
 
-    docker-compose up
+Port Forward to service
+
+    kubectl port-forward service/nginx-service 8002:80
     
-Navigate to http://localhost on a Web Browser
+![Port Forward to Service](a2.3.png)
+    
+Navigate to http://localhost:8002 on a Web Browser
+
+![Access via Web Browser](a2.4.png)
