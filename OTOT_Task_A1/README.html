@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td>Link to GitHub Repository</td>
-<td><a href="https://github.com/capeguy/cs3219-otot/OTOT_Task_A1/">https://github.com/capeguy/cs3219-otot/OTOT_Task_A1/</a></td>
+<td><a href="https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_A1">https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_A1</a></td>
 </tr>
 <tr>
 <td>Instructions</td>
@@ -49,6 +49,25 @@
 </table>
 <h2 id="user-content-instructions-on-how-to-run-the-docker-container">
 <a aria-hidden="true" class="anchor" href="#user-content-instructions-on-how-to-run-the-docker-container" id="user-content-instructions-on-how-to-run-the-docker-container" name="user-content-instructions-on-how-to-run-the-docker-container"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions on how to run the Docker container</h2>
+<p>Write index.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;CS3219 Task A1&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Hello! This is the HTML page served from NGINX.&lt;/h1&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>Write Dockerfile</p>
+<pre><code>FROM nginx:stable
+COPY ./index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+</code></pre>
 <p>Build &amp; Run Container</p>
 <pre><code>docker build . -t capeguy/task_a:latest
 </code></pre>

@@ -5,11 +5,35 @@
 | ------ | ----------- |
 | Name   | Lau Jun Hao Benjamin |
 | Matriculation Number | A01840840B |
-| Link to GitHub Repository | https://github.com/capeguy/cs3219-otot/OTOT_Task_A1/ |
+| Link to GitHub Repository | https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_A1 |
 | Instructions | [Below](#foo) |
 | Other Relevant Learnings | null |
 
 ## Instructions on how to run the Docker container
+
+Write index.html
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS3219 Task A1</title>
+</head>
+
+<body>
+    <h1>Hello! This is the HTML page served from NGINX.</h1>
+</body>
+
+</html>
+```
+
+Write Dockerfile
+```
+FROM nginx:stable
+COPY ./index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+```
+
 Build & Run Container
         
     docker build . -t capeguy/task_a:latest

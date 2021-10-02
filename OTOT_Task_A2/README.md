@@ -5,7 +5,7 @@
 | ------ | ----------- |
 | Name   | Lau Jun Hao Benjamin |
 | Matriculation Number | A01840840B |
-| Link to GitHub Repository | https://github.com/capeguy/cs3219-otot/OTOT_Task_A2/ |
+| Link to GitHub Repository | https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_A2 |
 | Instructions | [Below](#foo) |
 | Other Relevant Learnings | null |
 
