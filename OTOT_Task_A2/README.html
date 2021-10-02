@@ -1,0 +1,76 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet"/>
+<meta charset="utf-8" content="text/html"/>
+<div class="gist">
+<style class="formula-style">
+        svg.gh-md-to-html-formula {
+            fill: black;
+        }
+    </style>
+<div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file" id="user-content-article-README">
+<div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="user-content-file-docker-image-pull-md-readme" style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+<article class="markdown-body entry-content container-lg" itemprop="text">
+<h1 id="user-content-task-a2">
+<a aria-hidden="true" class="anchor" href="#user-content-task-a2" id="user-content-task-a2" name="user-content-task-a2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task A2</h1>
+<h2 id="user-content-submission-information">
+<a aria-hidden="true" class="anchor" href="#user-content-submission-information" id="user-content-submission-information" name="user-content-submission-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submission Information</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lau Jun Hao Benjamin</td>
+</tr>
+<tr>
+<td>Matriculation Number</td>
+<td>A01840840B</td>
+</tr>
+<tr>
+<td>Link to GitHub Repository</td>
+<td><a href="https://github.com/capeguy/cs3219-otot/OTOT_Task_A2/">https://github.com/capeguy/cs3219-otot/OTOT_Task_A2/</a></td>
+</tr>
+<tr>
+<td>Instructions</td>
+<td><a href="#user-content-foo">Below</a></td>
+</tr>
+<tr>
+<td>Other Relevant Learnings</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-content-kubectl-commands">
+<a aria-hidden="true" class="anchor" href="#user-content-kubectl-commands" id="user-content-kubectl-commands" name="user-content-kubectl-commands"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kubectl Commands</h2>
+<h3 id="user-content-deploy-image">
+<a aria-hidden="true" class="anchor" href="#user-content-deploy-image" id="user-content-deploy-image" name="user-content-deploy-image"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy Image</h3>
+<pre><code>kubectl apply -f nginx-deployment.yml
+</code></pre>
+<p><a href="/images/a2.1.png" rel="noopener noreferrer" target="_blank"><img alt="Create Deployment" data-canonical-src="/images/a2.1.png" src="/images/a2.1.png" style="max-width:100%; max-height: 554px;"/></a></p>
+<h3 id="user-content-configure-service">
+<a aria-hidden="true" class="anchor" href="#user-content-configure-service" id="user-content-configure-service" name="user-content-configure-service"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure Service</h3>
+<pre><code>kubectl apply -f nginx-service.yml
+</code></pre>
+<p><a href="/images/a2.2.png" rel="noopener noreferrer" target="_blank"><img alt="Create Service" data-canonical-src="/images/a2.2.png" src="/images/a2.2.png" style="max-width:100%; max-height: 414px;"/></a></p>
+<h3 id="user-content-access-deployed-image-through-service">
+<a aria-hidden="true" class="anchor" href="#user-content-access-deployed-image-through-service" id="user-content-access-deployed-image-through-service" name="user-content-access-deployed-image-through-service"><span aria-hidden="true" class="octicon octicon-link"></span></a>Access Deployed Image Through Service</h3>
+<p>Port Forward to service</p>
+<pre><code>kubectl port-forward service/nginx-service 8002:80
+</code></pre>
+<p><a href="/images/a2.3.png" rel="noopener noreferrer" target="_blank"><img alt="Port Forward to Service" data-canonical-src="/images/a2.3.png" src="/images/a2.3.png" style="max-width:100%; max-height: 72px;"/></a></p>
+<p>Navigate to <a href="http://localhost:8002" rel="nofollow">http://localhost:8002</a> on a Web Browser</p>
+<p><a href="/images/a2.4.png" rel="noopener noreferrer" target="_blank"><img alt="Access via Web Browser" data-canonical-src="/images/a2.4.png" src="/images/a2.4.png" style="max-width:100%; max-height: 200px;"/></a></p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -14,18 +14,18 @@ Build & Run Container
         
     docker build . -t capeguy/task_a:latest
 
-![Running of Docker Build](a1.1.png)
+![Running of Docker Build](images/a1.1.png)
 
     docker push capeguy/task_a:latest 
 
-![Running of Docker Push](a1.2.png)
+![Running of Docker Push](images/a1.2.png)
 
     docker run -p "8001:80" capeguy/task_a:latest
 
-![Running of Docker Run](a1.3.png)
+![Running of Docker Run](images/a1.3.png)
     
 Replace `capeguy` with your own Dockerhub Username
 
 Navigate to http://localhost:8001 on a Web Browser
 
-![Opening in Web Browser](a1.4.png)
+![Opening in Web Browser](images/a1.4.png)

@@ -14,13 +14,13 @@
 
     kubectl apply -f nginx-deployment.yml
     
-![Create Deployment](a2.1.png)
+![Create Deployment](images/a2.1.png)
 
 ### Configure Service
 
     kubectl apply -f nginx-service.yml
     
-![Create Service](a2.2.png)
+![Create Service](images/a2.2.png)
     
 ### Access Deployed Image Through Service
 
@@ -28,8 +28,8 @@ Port Forward to service
 
     kubectl port-forward service/nginx-service 8002:80
     
-![Port Forward to Service](a2.3.png)
+![Port Forward to Service](images/a2.3.png)
     
 Navigate to http://localhost:8002 on a Web Browser
 
-![Access via Web Browser](a2.4.png)
+![Access via Web Browser](images/a2.4.png)
