@@ -1,0 +1,107 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet"/>
+<meta charset="utf-8" content="text/html"/>
+<div class="gist">
+<style class="formula-style">
+        svg.gh-md-to-html-formula {
+            fill: black;
+        }
+    </style>
+<div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file" id="user-content-article-README">
+<div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="user-content-file-docker-image-pull-md-readme" style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+<article class="markdown-body entry-content container-lg" itemprop="text">
+<h1 id="user-content-task-a3">
+<a aria-hidden="true" class="anchor" href="#user-content-task-a3" id="user-content-task-a3" name="user-content-task-a3"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task A3</h1>
+<h2 id="user-content-submission-information">
+<a aria-hidden="true" class="anchor" href="#user-content-submission-information" id="user-content-submission-information" name="user-content-submission-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submission Information</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lau Jun Hao Benjamin</td>
+</tr>
+<tr>
+<td>Matriculation Number</td>
+<td>A01840840B</td>
+</tr>
+<tr>
+<td>Link to GitHub Repository</td>
+<td><a href="https://github.com/capeguy/cs3219-otot/OTOT_Task_A3/">https://github.com/capeguy/cs3219-otot/OTOT_Task_A3/</a></td>
+</tr>
+<tr>
+<td>Instructions</td>
+<td><a href="#user-content-foo">Below</a></td>
+</tr>
+<tr>
+<td>Other Relevant Learnings</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-content-kubectl-commands">
+<a aria-hidden="true" class="anchor" href="#user-content-kubectl-commands" id="user-content-kubectl-commands" name="user-content-kubectl-commands"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kubectl Commands</h2>
+<h3 id="user-content-create-ingress">
+<a aria-hidden="true" class="anchor" href="#user-content-create-ingress" id="user-content-create-ingress" name="user-content-create-ingress"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create Ingress</h3>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">apiVersion</span>: <span class="pl-s">networking.k8s.io/v1</span>
+<span class="pl-ent">kind</span>: <span class="pl-s">Ingress</span>
+<span class="pl-ent">metadata</span>:
+  <span class="pl-ent">name</span>: <span class="pl-s">nginx-ingress</span>
+  <span class="pl-ent">annotations</span>:
+    <span class="pl-ent">nginx.ingress.kubernetes.io/affinity</span>: <span class="pl-s"><span class="pl-pds">"</span>cookie<span class="pl-pds">"</span></span>
+    <span class="pl-ent">nginx.ingress.kubernetes.io/session-cookie-name</span>: <span class="pl-s"><span class="pl-pds">"</span>route<span class="pl-pds">"</span></span>
+    <span class="pl-ent">nginx.ingress.kubernetes.io/session-cookie-expires</span>: <span class="pl-s"><span class="pl-pds">"</span>172800<span class="pl-pds">"</span></span>
+    <span class="pl-ent">nginx.ingress.kubernetes.io/session-cookie-max-age</span>: <span class="pl-s"><span class="pl-pds">"</span>172800<span class="pl-pds">"</span></span>
+<span class="pl-ent">spec</span>:
+  <span class="pl-ent">ingressClassName</span>: <span class="pl-s">nginx</span>
+  <span class="pl-ent">rules</span>:
+  - <span class="pl-ent">host</span>: <span class="pl-s">a3.cs3219.com</span>
+    <span class="pl-ent">http</span>:
+      <span class="pl-ent">paths</span>:
+      - <span class="pl-ent">path</span>: <span class="pl-s">/</span>
+        <span class="pl-ent">pathType</span>: <span class="pl-s">Prefix</span>
+        <span class="pl-ent">backend</span>:
+          <span class="pl-ent">service</span>:
+            <span class="pl-ent">name</span>: <span class="pl-s">nginx-service</span>
+            <span class="pl-ent">port</span>: 
+              <span class="pl-ent">number</span>: <span class="pl-c1">80</span></pre></div>
+<pre><code>kubectl apply -f nginx-ingress.yml
+</code></pre>
+<h3 id="user-content-use-ingress-controller">
+<a aria-hidden="true" class="anchor" href="#user-content-use-ingress-controller" id="user-content-use-ingress-controller" name="user-content-use-ingress-controller"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use Ingress Controller</h3>
+<p><code>ingressClassName: nginx</code> is used for the Ingress Controller with configurations for Sticky Session via Cookie</p>
+<p><a href="/images/a3.1.png" rel="noopener noreferrer" target="_blank"><img alt="Ingress Details" data-canonical-src="/images/a3.1.png" src="/images/a3.1.png" style="max-width:100%; max-height: 74px;"/></a></p>
+<p>Update host file</p>
+<p><a href="/images/a3.2.png" rel="noopener noreferrer" target="_blank"><img alt="Updated Host file" data-canonical-src="/images/a3.2.png" src="/images/a3.2.png" style="max-width:100%; max-height: 64px;"/></a></p>
+<p>Sending a request and save cookies</p>
+<p><code>curl -v --cookie-jar cookie.txt http://a3.cs3219.com</code></p>
+<p><a href="/images/a3.3.png" rel="noopener noreferrer" target="_blank"><img alt="Screenshot of requests across multiple devices" data-canonical-src="/images/a3.3.png" src="/images/a3.3.png" style="max-width:100%; max-height: 972px;"/></a></p>
+<p>Note that Response Header includes a "Set-Cookie", and each request is served by a differnet pod.</p>
+<p>Sending a request with previously used cookie</p>
+<p><code>curl -v --cookie cookie.txt http://a3.cs3219.com</code></p>
+<p><a href="/images/a3.4.png" rel="noopener noreferrer" target="_blank"><img alt="Screenshot of Cookie being reused for subsequent request" data-canonical-src="/images/a3.4.png" src="/images/a3.4.png" style="max-width:100%; max-height: 712px;"/></a></p>
+<p>Note that Response Header does not include a "Set-Cookie" and is served by the same pod as previously.</p>
+<h3 id="user-content-define-horizontal-pod-autoscaler-and-prove-scalability">
+<a aria-hidden="true" class="anchor" href="#user-content-define-horizontal-pod-autoscaler-and-prove-scalability" id="user-content-define-horizontal-pod-autoscaler-and-prove-scalability" name="user-content-define-horizontal-pod-autoscaler-and-prove-scalability"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define Horizontal Pod Autoscaler and Prove Scalability</h3>
+<p><code>kubectl autoscale deployment nginx-deployment --cpu-percent=50 --min=1 --max=10</code></p>
+<p><code>kubectl get hpa</code></p>
+<p><a href="/images/a3.5.png" rel="noopener noreferrer" target="_blank"><img alt="List of HPAs" data-canonical-src="/images/a3.5.png" src="/images/a3.5.png" style="max-width:100%; max-height: 68px;"/></a></p>
+<p>Induce Load</p>
+<p><code>kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://cs3219-a3.capeguy.net; done"</code></p>
+<p>After some time, see that the number of replicas increases as load increases</p>
+<p><a href="/images/a3.6.png" rel="noopener noreferrer" target="_blank"><img alt="Updated List of HPAs" data-canonical-src="/images/a3.6.png" src="/images/a3.6.png" style="max-width:100%; max-height: 140px;"/></a></p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
