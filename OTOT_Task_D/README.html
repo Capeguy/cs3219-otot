@@ -1,0 +1,99 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link href="/github-markdown-css/github-css.css" rel="stylesheet"/>
+<meta charset="utf-8" content="text/html"/>
+<div class="gist">
+<style class="formula-style">
+        svg.gh-md-to-html-formula {
+            fill: black;
+        }
+    </style>
+<div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file" id="user-content-article-README">
+<div class="Box-body readme blob js-code-block-container p-5 p-xl-6" id="user-content-file-docker-image-pull-md-readme" style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+<article class="markdown-body entry-content container-lg" itemprop="text">
+<h1 id="user-content-task-a2">
+<a aria-hidden="true" class="anchor" href="#user-content-task-a2" id="user-content-task-a2" name="user-content-task-a2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Task A2</h1>
+<h2 id="user-content-submission-information">
+<a aria-hidden="true" class="anchor" href="#user-content-submission-information" id="user-content-submission-information" name="user-content-submission-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submission Information</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Lau Jun Hao Benjamin</td>
+</tr>
+<tr>
+<td>Matriculation Number</td>
+<td>A01840840B</td>
+</tr>
+<tr>
+<td>Link to GitHub Repository</td>
+<td><a href="https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_D">https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_D</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-content-start-containers-in-docker-composeyml">
+<a aria-hidden="true" class="anchor" href="#user-content-start-containers-in-docker-composeyml" id="user-content-start-containers-in-docker-composeyml" name="user-content-start-containers-in-docker-composeyml"><span aria-hidden="true" class="octicon octicon-link"></span></a>Start Containers in docker-compose.yml</h2>
+<ol>
+<li>Open a Terminal in OTOT_Task_D folder</li>
+<li>Enter the following command: <code>docker-compose up</code>
+</li>
+<li>Wait for the containers to be ready</li>
+</ol>
+<h2 id="user-content-create-a-topic">
+<a aria-hidden="true" class="anchor" href="#user-content-create-a-topic" id="user-content-create-a-topic" name="user-content-create-a-topic"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a topic</h2>
+<ol>
+<li>Enter the following command: <code>kafka-topics --create --topic cs3219-d --partitions 1 --replication-factor 3 --if-not-exists --bootstrap-server localhost:32181</code>
+</li>
+</ol>
+<p><a href="/images/d1.png" rel="noopener noreferrer" target="_blank"><img alt="Create a topic" data-canonical-src="/images/d1.png" src="/images/d1.png" style="max-width:100%; max-height: 58px;"/></a></p>
+<h2 id="user-content-create-a-publisher-and-consumer-to-the-topic">
+<a aria-hidden="true" class="anchor" href="#user-content-create-a-publisher-and-consumer-to-the-topic" id="user-content-create-a-publisher-and-consumer-to-the-topic" name="user-content-create-a-publisher-and-consumer-to-the-topic"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a Publisher and Consumer to the topic</h2>
+<ol>
+<li>Open a new terminal and enter the following command: <code>kafka-console-producer --topic cs3219-d --bootstrap-server kafka-1:19092</code>
+</li>
+<li>Enter any message</li>
+<li>Open a new terminal and enter the following command: <code>kafka-console-consumer --topic cs3219-d --bootstrap-server kafka-2:29092</code>
+</li>
+<li>See that the message is shown</li>
+<li>You may go back to the previous terminal used for publishing to send more messages</li>
+</ol>
+<p><a href="/images/d2.png" rel="noopener noreferrer" target="_blank"><img alt="Publisher &amp; Consumer" data-canonical-src="/images/d2.png" src="/images/d2.png" style="max-width:100%; max-height: 216px;"/></a></p>
+<h2 id="user-content-identify-the-controller">
+<a aria-hidden="true" class="anchor" href="#user-content-identify-the-controller" id="user-content-identify-the-controller" name="user-content-identify-the-controller"><span aria-hidden="true" class="octicon octicon-link"></span></a>Identify the Controller</h2>
+<ol>
+<li>Open a new terminal and enter the following command: <code>kcat -L -b kafka-1:19092</code>
+</li>
+<li>In this case the controller is <code>kafka-3</code>
+</li>
+</ol>
+<p><a href="/images/d3.png" rel="noopener noreferrer" target="_blank"><img alt="Identify the Controller" data-canonical-src="/images/d3.png" src="/images/d3.png" style="max-width:100%; max-height: 148px;"/></a></p>
+<h2 id="user-content-stop-the-controller-and-identify-the-new-controller">
+<a aria-hidden="true" class="anchor" href="#user-content-stop-the-controller-and-identify-the-new-controller" id="user-content-stop-the-controller-and-identify-the-new-controller" name="user-content-stop-the-controller-and-identify-the-new-controller"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stop the Controller and Identify the New Controller</h2>
+<ol>
+<li>Open a Terminal in OTOT_Task_D folder</li>
+<li>Enter the following command: <code>docker-compose down kafka-3</code>
+</li>
+<li>Open a new terminal and enter the following command: <code>kcat -L -b kafka-1:19092</code>
+</li>
+<li>In this case the controller is now <code>kafka-1</code>
+</li>
+</ol>
+<p><a href="/images/d4.png" rel="noopener noreferrer" target="_blank"><img alt="Identify the Controller" data-canonical-src="/images/d4.png" src="/images/d4.png" style="max-width:100%; max-height: 166px;"/></a></p>
+<h2 id="user-content-verify-that-pub-sub-is-still-working">
+<a aria-hidden="true" class="anchor" href="#user-content-verify-that-pub-sub-is-still-working" id="user-content-verify-that-pub-sub-is-still-working" name="user-content-verify-that-pub-sub-is-still-working"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verify that Pub-Sub is still working</h2>
+<p><a href="/images/d5.png" rel="noopener noreferrer" target="_blank"><img alt="Verify that Pub-Sub is still working" data-canonical-src="/images/d5.png" src="/images/d5.png" style="max-width:100%; max-height: 140px;"/></a></p>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
