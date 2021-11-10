@@ -5,21 +5,31 @@
 | ------ | ----------- |
 | Name   | Lau Jun Hao Benjamin |
 | Matriculation Number | A01840840B |
-| Link to GitHub Repository | https://github.com/capeguy/cs3219-otot/OTOT_Task_A2/ |
+| Link to GitHub Repository | https://github.com/Capeguy/cs3219-otot/tree/master/OTOT_Task_A2 |
 | Instructions | [Below](#foo) |
 | Other Relevant Learnings | null |
 
 ## Kubectl Commands
 ### Deploy Image
 
-    docker-compose up
+    kubectl apply -f nginx-deployment.yml
     
+![Create Deployment](images/a2.1.png)
+
 ### Configure Service
 
-    docker-compose up
+    kubectl apply -f nginx-service.yml
+    
+![Create Service](images/a2.2.png)
     
 ### Access Deployed Image Through Service
 
-    docker-compose up
+Port Forward to service
+
+    kubectl port-forward service/nginx-service 8002:80
     
-Navigate to http://localhost on a Web Browser
+![Port Forward to Service](images/a2.3.png)
+    
+Navigate to http://localhost:8002 on a Web Browser
+
+![Access via Web Browser](images/a2.4.png)
